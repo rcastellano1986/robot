@@ -2,6 +2,11 @@
 Library  SeleniumLibrary
 
 *** Variables ***
+#Variables de configuração
+${url}          https://itera-qa.azurewebsites.net/home/automation
+${browser}      chrome
+
+#Elementos
 ${input_name}           //input[@id="name"]
 ${input_phone}          //input[@id="phone"]
 ${input_email}          //input[@id="email"]
@@ -9,10 +14,9 @@ ${input_password}       //input[@id="password"]
 ${textarea_address}     //textarea[@id="address"]
 ${button_submit}        //button[@name="submit"]
 
-
 *** Keywords ***
 abrir navegador e acessar site
-    Open Browser    https://itera-qa.azurewebsites.net/home/automation  chrome
+    Open Browser    ${url}      ${browser}
 
 preencher campos
     Input Text  ${input_name}           Raphael
@@ -42,6 +46,7 @@ fechar navegador
 
 *** Test Cases***
 Cenário 1: Preencher formulário
+    [Tags]  regressivo
     abrir navegador e acessar site
     preencher campos
     clicar em submit

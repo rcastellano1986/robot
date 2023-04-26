@@ -18,6 +18,7 @@ abrir site da globo
 
 *** Test Cases***
 Cenário 1: Teste de abrir navegador
+    [Tags]  regressivo
     abrir site da google
     fechar navegador
 
